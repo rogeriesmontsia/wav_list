@@ -1,8 +1,26 @@
-# React + Vite
+# WaveList: React + Vite + Docker + FastAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+Educational aplication to learn tecnhologies
 
-Currently, two official plugins are available:
+## Usage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installing
+Use this command:
+```sh
+docker
+```
+
+
+### Folder structure
+
+Here's a folder structure :
+
+```
+wave-list/     # Root directory.
+|- backend/        # Folder with the server side API (FastAPI)
+    |- src/   
+|- frontend/       # Folder with the client (REACT)
+
+```
+
