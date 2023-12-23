@@ -1,5 +1,10 @@
 import Discover from './Discover';
-
+import Login from './Login';
+import Home from './Home';
+import List from './List';
 export {
-  Discover
+  Discover,
+  Login,
+  Home,
+  List
 };
