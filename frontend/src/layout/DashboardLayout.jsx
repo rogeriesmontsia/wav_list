@@ -1,11 +1,13 @@
 
 import React from 'react';
-import { Discover } from '../pages'
+import { Header } from '../components'
+import { Footer } from '../components'
 const DashboardLayout = ({ children }) => {
   return (
     <div>
-  <header className="sticky top-0"><Discover /></header>
+      <Header />
       {children}
+      <Footer />
     </div>
   );
 }

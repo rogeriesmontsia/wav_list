@@ -1,6 +1,5 @@
 import '../App.css'
 import { Outlet, Route, Routes } from 'react-router-dom'
-import { Discover } from '../pages'
 export default function Home() {
     return (
         <div >
@@ -9,7 +8,7 @@ export default function Home() {
                 <Outlet />
             </main>
 
-            <footer className="bg-blue-200 p-4">Footer</footer>
+            
         </div>
 
     )
