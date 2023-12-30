@@ -7,8 +7,6 @@ export default function Home() {
             <main className="h-96 flex-1 bg-blue-50 p-4">
                 <Outlet />
             </main>
-
-            
         </div>
 
     )
