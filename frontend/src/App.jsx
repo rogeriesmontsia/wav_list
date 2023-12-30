@@ -4,6 +4,7 @@ import { DashboardLayout, LoginLayout } from './layout'
 import { Home } from './pages'
 import { Login } from './pages'
 import { List } from './pages'
+import { NotFound } from './pages'
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
             </DashboardLayout>
           }
         />
+        <Route path='*' element={<NotFound />}/>
       </Routes>
     </>
   )
