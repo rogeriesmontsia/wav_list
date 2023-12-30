@@ -13,7 +13,7 @@ const List = () => {
     return (
         <div>
             <h1>List Songs</h1>
-            <div className="grid grid-cols-4 gap-1">
+            <div className="grid grid-cols-4 mx-6 ">
                 {data.map(item => (
                     <Item key={item.id} object={item} />
                 ))}
