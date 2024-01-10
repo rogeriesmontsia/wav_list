@@ -24,7 +24,7 @@ wave-list/     # Root directory.
 
 ```
 
-### Tailwindcss
+## Tailwindcss
 Use this command:
 ```sh
 npm install -D tailwindcss postcss autoprefixer
@@ -32,7 +32,10 @@ npx tailwindcss init -p
 npm install @headlessui/react @heroicons/react
 ```
 
-# React
+
+https://tailwindcomponents.com/
+
+## React
 
 <aside>
 💡 Instruccions per a la creació projecte React + Vite + Docker
@@ -54,7 +57,6 @@ Aquesta comanda utilitza npm per crear un nou projecte Vite amb la versió més 
 
 Per tant, quan executes aquesta comanda, npm descarregarà la versió més recent de Vite i utilitzarà aquesta plantilla per crear un nou projecte Vite al directori actual. Després d'executar aquesta comanda, pots navegar al directori del nou projecte i començar a treballar en el teu codi.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f73331bd-c47b-4250-834e-e23ac210f93e/af8dccd0-5cd7-4105-af55-bec20c943a41/Untitled.png)
 
 ```bash
 npm install
@@ -67,7 +69,6 @@ La comanda **`npm install`** s'utilitza per instal·lar les dependències d'un p
 npm run dev
 
 ```
-
 La comanda **`npm run dev`** s'utilitza per executar un script anomenat "dev" que està definit al fitxer **`package.json`** del teu projecte. Aquest script generalment es configura per iniciar un entorn de desenvolupament local per al teu projecte.
 
 <aside>
@@ -75,34 +76,13 @@ La comanda **`npm run dev`** s'utilitza per executar un script anomenat "dev" qu
 
 </aside>
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f73331bd-c47b-4250-834e-e23ac210f93e/3806cd64-506e-467c-8c99-e92960abc1fd/Untitled.png)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f73331bd-c47b-4250-834e-e23ac210f93e/8c3716c2-7bd0-4b9b-8937-a491199aab0b/Untitled.png)
+## Docker
 
 Creem fitxer Dockerfile i .dockerignore
-
-```docker
-FROM node AS build_stage
-WORKDIR /app
-COPY package.json .
-RUN npm i
-COPY . .
-RUN npm run build
-
-#Production stage
-FROM node:latest AS production_stage
-WORKDIR /app
-COPY --from=build_stage /app/dist/ /app/dist/
-EXPOSE 8080
-
-COPY package.json .
-CMD ["npm", "run","preview"]
-```
 
 ```bash
 docker build -t vite-react-app:latest .
 ```
-
 La comanda **`docker build -t vite-react-app:latest .`** s'utilitza per construir una imatge de Docker a partir del context actual (**`.`**, que significa el directori actual) i etiquetar-la amb el nom **`vite-react-app`** i la versió **`latest`**.
 
 Aquí tens una desglossament de la comanda:
@@ -116,21 +96,4 @@ docker images | grep vite-react-app
 docker run -p 8080:8080 vite-react-app:latest
 ```
 
-Tailwindcss
 
-```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
-
-```css
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-```
-
-```bash
-npm install @headlessui/react @heroicons/react
-```
-
-https://tailwindcomponents.com/
