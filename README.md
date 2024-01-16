@@ -10,6 +10,7 @@ Educational aplication to learn tecnhologies
 ## Usage
 Use this command:
 ```
+docker-compose up --build
 npm run dev
 ```
 ### Installing
