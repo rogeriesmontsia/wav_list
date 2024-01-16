@@ -5,6 +5,7 @@ import { Home } from './pages'
 import { Login } from './pages'
 import { List } from './pages'
 import { NotFound } from './pages'
+import { Discover } from './pages'
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
               <Routes>
                 <Route index element={<Home />} />
                 <Route path="test" element={<List />} />
+                <Route path="api" element={<Discover />} />
               </Routes>
             </DashboardLayout>
           }
