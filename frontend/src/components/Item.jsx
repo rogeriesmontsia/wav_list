@@ -4,7 +4,7 @@ const Item  = (props)  => {
         <div class="mx-auto px-2 py-4 max-w-xl my-5">
                 <div class="bg-white shadow-2xl rounded-lg mb-6 tracking-wide" >
                     <div class="md:flex-shrink-0">
-                        <img src={props.object.imageUrl} alt="mountains" class="w-full h-64 rounded-lg rounded-b-none" />
+                        <img src={props.object.imageUrl ? props.object.imageUrl : "https://ik.imagekit.io/q5edmtudmz/post1_fOFO9VDzENE.jpg"} alt="mountains" class="w-full h-64 rounded-lg rounded-b-none" />
                     </div>
                     <div class="px-4 py-2 mt-2">
                         <h2 class="font-bold text-2xl text-gray-800 tracking-normal">My Amaizing Journey to the Mountains.</h2>
