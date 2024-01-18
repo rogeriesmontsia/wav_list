@@ -5,6 +5,16 @@ services:
     ports:
       - 5000:5000
     container_name: api_backend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend:/app"
+      - "/app/node_modules"
+    container_name: frontend_react
   mongo:
     image: mongo
     restart: always
