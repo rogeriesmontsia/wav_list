@@ -7,18 +7,6 @@ Educational aplication to learn tecnhologies
 
 ## [React ](/frontend/README.md)
 
-## Usage
-Use this command:
-```
-docker-compose up --build
-npm run dev
-```
-### Installing
-Use this command:
-```
-npm run install
-```
-
 
 ### Folder structure
 
@@ -40,7 +28,7 @@ npx tailwindcss init -p
 npm install @headlessui/react @heroicons/react
 ```
 
-
+https://tw-elements.com/docs/react/
 https://tailwindcomponents.com/
 
 
