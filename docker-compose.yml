@@ -15,6 +15,29 @@ services:
       - "./frontend:/app"
       - "/app/node_modules"
     container_name: frontend_react
+  database:
+    container_name: maria-db
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    expose:
+        - "40000"
+    ports:
+        - "40000:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8000:80
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_PORT=3306 
+    depends_on:
+      - database
   mongo:
     image: mongo
     restart: always
@@ -26,3 +49,5 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
+volumes:
+  mariadb-data:

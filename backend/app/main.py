@@ -1,8 +1,16 @@
 from typing import Union
-import uvicorn
 from fastapi import FastAPI
+from app.db_config.database import Base
+from app.db_config.database import engine
+from app.controllers import login
 
+Base.metadata.create_all(bind=engine) 
 app = FastAPI()
+
+def configure():
+    app.include_router(login.router, prefix="/login")
+    
+configure()
 
 
 @app.get("/products")
@@ -15,5 +23,5 @@ def read_root():
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "qss": q}
 
-if __name__ == '__main__':
-    uvicorn.run("main:app",host="127.0.0.1",port=8181,reload=True)
+
+    
