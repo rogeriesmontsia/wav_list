@@ -2,15 +2,25 @@ version: '3.8'
 name: backend-debug-setup
 services:
   fastapi-vscode-debug-setup:
-      build: .
+      build: ./backend
       ports:
         - 5000:5000
         - 5678:5678
       volumes:
-        - ./app:/code/app
+        - ./backend/app:/code/app
       command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m uvicorn app.main:app --host 0.0.0.0 --port 5000 --reload"]
       environment:
         - APP_MESSAGE=Hello debugger   
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend:/app"
+      - "/app/node_modules"
+    container_name: frontend_react
   database:
       container_name: maria-db-debug
       image: mariadb
