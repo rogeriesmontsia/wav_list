@@ -4,7 +4,7 @@ from app.db_config.database import Base
 from app.db_config.database import engine
 from app.controllers import login
 
-Base.metadata.create_all(bind=engine) 
+
 app = FastAPI()
 
 def configure():
@@ -12,10 +12,12 @@ def configure():
     
 configure()
 
+@app.on_event("startup")
+async def startup():
+    Base.metadata.create_all(bind=engine) 
 
 @app.get("/products")
 def read_root():
-    '''TODO petició api X'''
     return {"producte1": "asdfasdfsadfdsaf"}
 
 

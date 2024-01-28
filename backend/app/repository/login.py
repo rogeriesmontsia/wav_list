@@ -10,9 +10,10 @@ class LoginRepository:
     def __init__(self, sess:Depends(get_db)):
         self.sess:Session = sess
     
-    def insert_login(self, login: Users) -> bool: 
+    def insert_login(self, user: Users) -> bool: 
         try:
-            self.sess.add(login)
+            user = Users(username=user.username, email=user.email, password=user.password) 
+            self.sess.add(user)
             self.sess.commit()
         except Exception as e:
             print(e) 

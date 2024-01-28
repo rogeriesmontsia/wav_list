@@ -4,3 +4,8 @@ uvicorn>=0.15.0,<0.16.0
 SQLAlchemy
 mysqlclient
 databases[mysql]
+alembic
+#dev test
+pytest
+pytest-asyncio
+httpx
