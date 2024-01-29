@@ -1,13 +1,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
 
-
-DB_USER = "user"
-DB_PASSWORD = "password"
-DB_HOST = "database"
-DB_PORT = 3306
-DATABASE = "mydatabase"
+# Load .env file
+path ="{}/app/.env".format(os.getcwd())
+load_dotenv(path)
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DATABASE = os.getenv("DATABASE")
 DB_URL = 'mysql://{}:{}@{}/{}'.format(DB_USER, DB_PASSWORD, DB_HOST, DATABASE)
 engine = create_engine(DB_URL)
 SessionFactory = sessionmaker(autocommit=False, autoflush=False, bind=engine)

@@ -5,6 +5,7 @@ SQLAlchemy
 mysqlclient
 databases[mysql]
 alembic
+python-dotenv
 #dev test
 pytest
 pytest-asyncio

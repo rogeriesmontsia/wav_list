@@ -12,6 +12,8 @@ def configure():
     
 configure()
 
+
+
 @app.on_event("startup")
 async def startup():
     Base.metadata.create_all(bind=engine) 
