@@ -10,3 +10,4 @@ class Users(Base):
     username = Column(String(50), unique=False, index=False)
     email = Column(String(100), unique=True, index=False)
     password = Column(String(100), unique=False, index=False)
+    created_date = Column(Date, unique=False, index=False)

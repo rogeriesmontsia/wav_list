@@ -23,6 +23,6 @@ def login_app(user:UserCreate, loginservice:LoginService = Depends(LoginService)
         if not login:
             return JSONResponse(status_code=500, content="User not created")
     else:
-        return JSONResponse(status_code=500, content="Email not valid")
+        return JSONResponse(content={'message':'email is not valid'}, status_code=401)
     return jsonable_encoder(login)
     

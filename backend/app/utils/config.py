@@ -12,3 +12,5 @@ DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 DATABASE = os.getenv("DATABASE")
 DB_URL = 'mysql://{}:{}@{}/{}'.format(DB_USER, DB_PASSWORD, DB_HOST, DATABASE)
+
+SECRET_KEY = os.getenv("SECRET_KEY")

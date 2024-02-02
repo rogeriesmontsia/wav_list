@@ -5,6 +5,8 @@ from app.db_config.database import get_db
 from sqlalchemy.orm import Session
 from fastapi import Depends
 from app.models.requests.login import UserCreate
+from app.security.secure import get_password_hash
+from datetime import date
 
 
 class LoginService: 
@@ -15,5 +17,11 @@ class LoginService:
     def get_login(self, username:str): 
         return self.repo.get_all_login_username(username)
     
-    def create_user(self, user:UserCreate):         
-        return self.repo.insert_login(user)
+    def create_user(self, user:UserCreate):
+            passphrase = get_password_hash(user.password)
+            user.password = passphrase            
+            success  = self.repo.insert_login(user)
+            if success == False: 
+                return JSONResponse(content={'message':'create login problem encountered'}, status_code=500)
+            return success    
+       

@@ -5,6 +5,7 @@ from app.models.data.sqlalchemy_models import Users
 from sqlalchemy import desc
 from fastapi.params import Depends
 from app.db_config.database import get_db
+from datetime import date, timedelta
 
 class LoginRepository: 
     def __init__(self, sess: Session):
@@ -12,7 +13,7 @@ class LoginRepository:
         
     def insert_login(self, user: Users) -> bool: 
         try:
-            user = Users(username=user.username, email=user.email, password=user.password) 
+            user = Users(username=user.username, email=user.email, password=user.password,created_date=date.today()) 
             self.sess.add(user)
             self.sess.commit()
         except Exception as e:
