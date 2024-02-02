@@ -5,6 +5,8 @@ services:
     ports:
       - 5000:5000
     container_name: api_backend
+    volumes:
+      - ./backend:/code
   frontend:
     build:
       context: ./frontend
@@ -26,16 +28,16 @@ services:
     volumes:
       - database-data:/var/lib/mysql
     expose:
-        - "40000"
+      - "40000"
     ports:
-        - "40000:3306"
+      - "40000:3306"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
       - 8000:80
     environment:
       - PMA_HOST=database
-      - PMA_PORT=3306 
+      - PMA_PORT=3306
     depends_on:
       - database
   mongo:
@@ -44,7 +46,7 @@ services:
     ports:
       - 27017:27017
     container_name: db_mongo
-    volumes: 
+    volumes:
       - /data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
