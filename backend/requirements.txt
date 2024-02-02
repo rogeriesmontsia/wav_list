@@ -6,7 +6,8 @@ mysqlclient
 databases[mysql]
 alembic
 python-dotenv
-python-jose==3.3.0
+# python-jose==3.3.0
+python-jose[pyjwt]
 python-multipart==0.0.5
 passlib==1.7.4
 
