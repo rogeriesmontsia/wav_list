@@ -3,7 +3,8 @@ from fastapi import FastAPI
 from app.db_config.database import Base
 from app.db_config.database import engine
 from app.controllers import login
-
+from dotenv import load_dotenv
+import os
 
 app = FastAPI()
 
@@ -12,11 +13,7 @@ def configure():
     
 configure()
 
-
-
-@app.on_event("startup")
-async def startup():
-    Base.metadata.create_all(bind=engine) 
+Base.metadata.create_all(bind=engine) 
 
 @app.get("/products")
 def read_root():
