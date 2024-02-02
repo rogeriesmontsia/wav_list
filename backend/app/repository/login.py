@@ -7,9 +7,9 @@ from fastapi.params import Depends
 from app.db_config.database import get_db
 
 class LoginRepository: 
-    def __init__(self, sess:Depends(get_db)):
-        self.sess:Session = sess
-    
+    def __init__(self, sess: Session):
+        self.sess = sess
+        
     def insert_login(self, user: Users) -> bool: 
         try:
             user = Users(username=user.username, email=user.email, password=user.password) 
@@ -49,3 +49,6 @@ class LoginRepository:
     
     def get_login(self, id:int): 
         return self.sess.query(Users).filter(Users.id == id).one_or_none()
+  
+def get_login_repository(sess: Session = Depends(get_db)):
+    return LoginRepository(sess)
