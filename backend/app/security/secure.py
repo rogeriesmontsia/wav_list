@@ -11,8 +11,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 crypt_context = CryptContext(schemes=["sha256_crypt", "md5_crypt"])
 
 oauth2_scheme = OAuth2AuthorizationCodeBearer(
-    authorizationUrl='ch07/oauth2/authorize',
-    tokenUrl="ch07/login/token",  
+    authorizationUrl='oauth2/authorize',
+    tokenUrl="login/token",  
     scopes={ 
             "admin_read": "admin role that has read only role",
              "admin_write":"admin role that has write only role",
